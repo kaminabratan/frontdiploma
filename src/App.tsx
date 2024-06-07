@@ -13,9 +13,14 @@ import StaffPerfomancePage from './pages/StaffPerfomancePage';
 
 import "bootstrap/dist/css/bootstrap.min.css"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import client from './main';
 
 function App() {
   const [count, setCount] = useState(0)
+
+
+
 
   return (
     <>

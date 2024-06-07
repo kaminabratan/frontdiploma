@@ -6,9 +6,27 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://flyby-router-demo.herokuapp.com/', // graphql сервер
+  uri: 'http://localhost:5052/client/graphql/', // graphql сервер
   cache: new InMemoryCache(),
 });
+export default client;
+
+  
+client
+.query({
+  query: gql`
+    query new {
+    hotels {
+    id
+    location
+    name
+    rating
+    stars
+  }
+}
+  `,
+})
+.then((result) => console.log(result));
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
